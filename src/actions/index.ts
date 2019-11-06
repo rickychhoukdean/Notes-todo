@@ -18,8 +18,6 @@ type user = {
   password: string;
 };
 
-
-
 export function addNote(note: note) {
   return { type: ADD_NOTE, note };
 }
