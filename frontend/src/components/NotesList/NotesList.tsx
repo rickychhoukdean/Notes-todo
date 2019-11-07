@@ -17,6 +17,7 @@ const NotesList: React.FC = () => {
 
   useEffect(() => {
     Axios.get("http://localhost:8000/api/notes/").then(res => {
+      console.log(res.data);
       const pulledNotes = res.data;
       setNotes(pulledNotes);
     });
@@ -24,10 +25,14 @@ const NotesList: React.FC = () => {
 
   if (!active) {
     return (
-        
       <ul>
         {notes.map(note => (
-          <div key={note.id} onClick={()=>{setActive(note.id)}}>
+          <div
+            key={note.id}
+            onClick={() => {
+              setActive(note.id);
+            }}
+          >
             <Note
               title={note.title}
               body={note.body}
@@ -38,9 +43,16 @@ const NotesList: React.FC = () => {
         ))}
       </ul>
     );
-  } else return (
-<div onClick={()=>{setActive(null)}}>hi</div>
-  );
+  } else
+    return (
+      <div
+        onClick={() => {
+          setActive(null);
+        }}
+      >
+        hi
+      </div>
+    );
 };
 
 export default NotesList;
