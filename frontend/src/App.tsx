@@ -6,18 +6,18 @@ import Signup from "./views/Signup/Signup";
 import Home from "./views/Home/Home";
 import * as actions from "./store/actions/auth";
 
-const App: React.FC = () => {
+const App: React.FC = (props) => {
   return (
     <Router>
       <div>
         <Route exact path="/login">
-          <Login />
+          <Login {...props} />
         </Route>
         <Route exact path="/signup">
-          <Signup />
+          <Signup {...props} />
         </Route>
         <Route exact path="/">
-          <Home />
+          <Home {...props} />
         </Route>
       </div>
     </Router>
