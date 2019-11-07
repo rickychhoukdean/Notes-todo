@@ -6,7 +6,7 @@ import "./Home.scss";
 import NotesList from "../../components/NotesList/NotesList";
 const Home: React.FC = () => {
   function postNote() {
-    Axios.post("http://localhost:8000/api/notes/create/", {
+    Axios.post("http://localhost:8000/api/notes/", {
       title: "hihi",
       body: "hihih",
       user:1
