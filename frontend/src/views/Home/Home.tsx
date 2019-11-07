@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import "./Home.scss";
 import NotesList from "../../components/NotesList/NotesList";
 const Home: React.FC = () => {
+
+
+  
   return (
     <>
       <Link className="user-button" to="/login">
