@@ -25,5 +25,6 @@ router.register(r'notes', views.NoteView, 'note')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api-auth/',include('rest_framework.urls'))
 ]
