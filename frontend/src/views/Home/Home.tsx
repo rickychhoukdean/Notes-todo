@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import "./Home.scss";
 import NotesList from "../../components/NotesList/NotesList";
 const Home: React.FC = () => {
-
-
-  
   return (
     <>
       <Link className="user-button" to="/login">
@@ -15,8 +12,11 @@ const Home: React.FC = () => {
       <Link className="user-button" to="/signup">
         <Button variant="outline-dark">Signup</Button>
       </Link>
-
-<NotesList/>
+      <Button>Create Note</Button>
+      <section>
+        <textarea rows={1} placeholder="Search"></textarea>
+        <NotesList />
+      </section>
     </>
   );
 };

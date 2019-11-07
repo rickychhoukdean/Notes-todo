@@ -12,6 +12,8 @@ type note = {
 
 const NotesList: React.FC = () => {
   const [notes, setNotes] = useState<note[]>([]);
+  const [active, setActive] = useState<number | null>(null);
+  const [search, setSearch] = useState<string | null>(null);
 
   useEffect(() => {
     Axios.get("http://localhost:8000/api/notes/").then(res => {
@@ -20,19 +22,24 @@ const NotesList: React.FC = () => {
     });
   }, []);
 
-  return (
-    <ul>
-      {notes.map(note => (
-        <div key={note.id}>
-          <Note
-            title={note.title}
-            body={note.body}
-            date_created={note.date_created}
-            date_editted={note.date_editted}
-          />
-        </div>
-      ))}
-    </ul>
+  if (!active) {
+    return (
+        
+      <ul>
+        {notes.map(note => (
+          <div key={note.id} onClick={()=>{setActive(note.id)}}>
+            <Note
+              title={note.title}
+              body={note.body}
+              date_created={note.date_created}
+              date_editted={note.date_editted}
+            />
+          </div>
+        ))}
+      </ul>
+    );
+  } else return (
+<div onClick={()=>{setActive(null)}}>hi</div>
   );
 };
 
