@@ -38,7 +38,8 @@ const Signup: React.FC = () => {
   }
 
   return (
-    <Form>
+    <div className="form-flex">
+    <Form >
       <Form.Group controlId="formUserName">
         <Form.Label>Username</Form.Label>
         <Form.Control
@@ -55,10 +56,11 @@ const Signup: React.FC = () => {
           onChange={passStateChange}
         />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={signup}>
+      <Button variant="primary" type="submit" onClick={signup} className="login-button">
         Submit
       </Button>
     </Form>
+    </div>
   );
 };
 

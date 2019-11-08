@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import "./Note.css";
 import Axios from "axios";
 import EditNote from "../../EditNote/EditNote";
-const Note = ({ id, title, body, date_created, date_editted }: any) => {
+const Note = ({ id, title, body, date_editted }: any) => {
   function deleteNote() {
     Axios.delete(`http://localhost:8000/api/notes/${id}/`);
     window.location.reload();

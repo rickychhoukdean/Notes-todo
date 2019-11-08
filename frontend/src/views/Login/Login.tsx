@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
+import './Login.css'
 
 const Login = (props: any) => {
   const [username, setUsername] = useState<string>("");
@@ -37,7 +38,8 @@ const Login = (props: any) => {
   }
 
   return (
-    <Form>
+    <div className="form-flex">
+    <Form className="input">
       <Form.Group controlId="formUserName">
         <Form.Label>Username</Form.Label>
         <Form.Control
@@ -54,10 +56,11 @@ const Login = (props: any) => {
           onChange={passStateChange}
         />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={userAuth}>
+      <Button variant="primary" type="submit" onClick={userAuth} className="login-button">
         Submit
       </Button>
     </Form>
+    </div>
   );
 };
 

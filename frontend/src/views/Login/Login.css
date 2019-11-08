@@ -1,0 +1,12 @@
+.input {
+  width: 50vw;
+}
+
+.login-button {
+  width: 50vw;
+}
+
+.form-flex {
+  display: flex;
+  justify-content: center;
+}
