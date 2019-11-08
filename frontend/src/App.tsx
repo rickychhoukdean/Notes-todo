@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./views/Login/Login";
-import { connect } from "react-redux";
 import Signup from "./views/Signup/Signup";
 import Home from "./views/Home/Home";
-import * as actions from "./store/actions/auth";
 
 const App = (props: any) => {
-  useEffect(() => {
-    props.onTryAutoSignup();
-  }, []);
-
   return (
     <Router>
       <div>
@@ -28,19 +22,4 @@ const App = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: { token: null }) => {
-  return {
-    isAuthenticated: state.token !== null
-  };
-};
-
-const mapDispatchToProps = (dispatch:any) => {
-  return {
-    onTryAutoSignup: () => dispatch(actions.authCheckState())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;

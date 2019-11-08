@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import * as actions from "../../store/actions/auth";
-import { connect } from "react-redux";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
 

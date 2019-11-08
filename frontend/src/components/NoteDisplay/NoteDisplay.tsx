@@ -18,7 +18,7 @@ const NoteDisplay = ({ key, title, body, setting }: any) => {
     Axios.post("http://localhost:8000/api/notes/", {
       title,
       body,
-      user: 26
+      user: 28
     })
       .then(res => {
         console.log(res);

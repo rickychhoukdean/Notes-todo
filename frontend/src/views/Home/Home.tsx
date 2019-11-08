@@ -5,21 +5,8 @@ import Axios from "axios";
 import "./Home.scss";
 import NotesList from "../../components/NotesList/NotesList";
 import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
+import LogoutPrompt from "../../components/LogoutPrompt/LogoutPrompt";
 const Home = (props: any) => {
-  function postNote() {
-    Axios.post("http://localhost:8000/api/notes/", {
-      title: "hihi",
-      body: "hihih",
-      user: 1
-    })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-
   return (
     <>
       {!localStorage.getItem("username") ? (
@@ -27,15 +14,9 @@ const Home = (props: any) => {
       ) : (
         <>
           <Link className="user-button" to="/login">
-            <Button variant="outline-dark">Logout</Button>
+            <LogoutPrompt/>
           </Link>
-          <Button
-            onClick={() => {
-              postNote();
-            }}
-          >
-            Create Note
-          </Button>
+          <Button>Create Note</Button>
 
           <section>
             <NotesList />

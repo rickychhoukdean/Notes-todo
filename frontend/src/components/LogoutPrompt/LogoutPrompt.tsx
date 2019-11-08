@@ -5,13 +5,12 @@ const LoginPrompt: React.FC = () => {
   function logout(event: any) {
     event.preventDefault();
     localStorage.removeItem("username");
+    window.location.reload(); 
   }
   return (
-    // <Link className="user-button" to="/">
       <Button variant="outline-dark" onClick={logout}>
         Logout
       </Button>
-    // </Link>
   );
 };
 
