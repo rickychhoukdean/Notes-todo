@@ -24,7 +24,10 @@ const NotesList: React.FC = () => {
   useEffect(() => {
     Axios.get("http://localhost:8000/api/notes/").then(res => {
       const pulledNotes = res.data;
-      setNotes(pulledNotes);
+      const userNotes = pulledNotes.filter((note: { user: string | null; }) => {
+        return note.user == (localStorage.getItem("username"));
+      });
+      setNotes(userNotes);
     });
   }, []);
 
