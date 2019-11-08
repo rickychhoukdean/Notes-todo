@@ -3,12 +3,12 @@ import Button from "react-bootstrap/Button";
 
 import "./Note.css";
 import Axios from "axios";
+import EditNote from "../../EditNote/EditNote";
 const Note = ({ id, title, body, date_created, date_editted }: any) => {
   function deleteNote() {
     console.log(id, title);
     Axios.delete(`http://localhost:8000/api/notes/${id}/`);
-    window.location.reload(); 
-
+    window.location.reload();
   }
 
   return (
@@ -16,8 +16,8 @@ const Note = ({ id, title, body, date_created, date_editted }: any) => {
       <div className="note-title">{title}</div>
       <div className="note-body">{body}</div>
       <div className="note-date">Last editted {date_editted}</div>
-      <Button onClick={deleteNote}>Edit</Button>
-      <Button onClick={deleteNote}>Delete</Button>
+      <EditNote id={id} title={title} body={body} />
+       <Button onClick={deleteNote}>Delete</Button>
     </div>
   );
 };

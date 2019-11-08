@@ -17,8 +17,8 @@ const NotesList: React.FC = () => {
   const [search, setSearch] = useState<string>("");
   const [activeNote, setActiveNote] = useState({
     id: 0,
-    body: "Please enter your body",
-    title: "Please enter a title"
+    body: "",
+    title: "Please click a note or button to the left "
   });
 
   useEffect(() => {
@@ -78,7 +78,6 @@ const NotesList: React.FC = () => {
           key={activeNote.id}
           body={activeNote.body}
           title={activeNote.title}
-          setting={"edit"}
         />
       </section>
     </div>
