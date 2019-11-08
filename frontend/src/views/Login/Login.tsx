@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Axios from "axios";
 import { Redirect } from "react-router-dom";
 
-const ConnectedLogin = (props: any) => {
+const Login = (props: any) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -25,14 +25,14 @@ const ConnectedLogin = (props: any) => {
         for (let user of res.data) {
           if (username === user.user && password === user.password) {
             localStorage.setItem("username", username);
-            setUsername("")
+            setUsername("");
           }
         }
       });
     }
   }
 
-  if(localStorage.getItem("username")){
+  if (localStorage.getItem("username")) {
     return <Redirect to={"/"}></Redirect>;
   }
 
@@ -61,21 +61,4 @@ const ConnectedLogin = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return {
-    loading: state.loading,
-    error: state.error
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    onAuth: (username: string, password: string) =>
-      dispatch(actions.authLogin(username, password))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ConnectedLogin);
+export default Login;

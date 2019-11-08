@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import * as actions from "../../store/actions/auth";
 import Axios from "axios";
-import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 const Signup = (props: any) => {
@@ -65,21 +63,4 @@ const Signup = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
-  return {
-    loading: state.loading,
-    error: state.error
-  };
-};
-
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    onAuth: (username: string, password: string) =>
-      dispatch(actions.authSignup(username, password))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Signup);
+export default Signup;

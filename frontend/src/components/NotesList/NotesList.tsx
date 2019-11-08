@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import Note from "./Note/Note";
 import NoteDisplay from "../NoteDisplay/NoteDisplay";
-
+import "./NoteList.css"
 type note = {
   id: number;
   title: string;
@@ -41,15 +41,15 @@ const NotesList: React.FC = () => {
     Axios.get(`http://localhost:8000/api/notes/${active}`).then(res => {
       setActiveNote(res.data);
     });
-    
   },[active])
 
 
 
   return (
-    <>
+    <div className="flex">
+    <section className="left-section">
       <textarea rows={1} placeholder="Search" onChange={searchQuery}></textarea>
-      <ul>
+      <ul className="note-list">
         {notes.map(note => (
           <div
             key={note.id}
@@ -66,10 +66,11 @@ const NotesList: React.FC = () => {
           </div>
         ))}
       </ul>
-
-      <NoteDisplay key={0} body={activeNote.body} title={activeNote.title} />
-
-    </>
+      </section>
+      <section className="right-section">
+      <NoteDisplay key={0} body={activeNote.body} title={activeNote.title} setting={"edit"} />
+      </section>
+    </div>
   );
 };
 

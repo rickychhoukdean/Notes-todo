@@ -1,0 +1,18 @@
+.note-list {
+  width: 30vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.left-section {
+  width: 30vw;
+}
+
+.right-section {
+  width: 70vw;
+  top: 0;
+  right: 0;
+  position: fixed;
+}

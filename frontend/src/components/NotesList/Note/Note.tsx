@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Note.css";
 const Note = ({ key, title, body, date_created, date_editted }: any) => {
-  console.log(date_editted > date_created)
   if (date_editted > date_created) {
     return (
       <div key={key} className="note-container">
