@@ -1,0 +1,8 @@
+.create-title,
+.create-body {
+  width: 100%;
+}
+
+.modal-title {
+  display: flex;
+}

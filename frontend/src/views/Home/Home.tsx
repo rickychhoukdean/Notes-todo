@@ -6,6 +6,7 @@ import "./Home.scss";
 import NotesList from "../../components/NotesList/NotesList";
 import LoginPrompt from "../../components/LoginPrompt/LoginPrompt";
 import LogoutPrompt from "../../components/LogoutPrompt/LogoutPrompt";
+import CreateNote from "../../components/CreateNote/CreateNote";
 const Home = (props: any) => {
   return (
     <>
@@ -16,7 +17,7 @@ const Home = (props: any) => {
           <Link className="user-button" to="/login">
             <LogoutPrompt/>
           </Link>
-          <Button>Create Note</Button>
+          <CreateNote/>
           <section>
             <NotesList />
           </section>
