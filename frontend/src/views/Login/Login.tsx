@@ -5,18 +5,18 @@ import Axios from "axios";
 import { Redirect } from "react-router-dom";
 import './Login.css'
 
-const Login = (props: any) => {
+const Login :React.FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   function userStateChange(event: any) {
     setUsername(event.target.value);
   }
-
   function passStateChange(event: any) {
     setPassword(event.target.value);
   }
 
+  //If user is authenticated via axios call then set their userid to localstorage
   function userAuth(event: any) {
     event.preventDefault();
     if (username && password) {

@@ -24,6 +24,7 @@ const NotesList: React.FC = () => {
   useEffect(() => {
     Axios.get("http://localhost:8000/api/notes/").then(res => {
       const pulledNotes = res.data;
+      //Filters the pulled data - I would have like to query this data already filtered but am not too familiar with Django
       const userNotes = pulledNotes.filter((note: { user: string | null; }) => {
         return note.user == (localStorage.getItem("username"));
       });
@@ -31,12 +32,18 @@ const NotesList: React.FC = () => {
     });
   }, []);
 
+  function searchQuery(event: any) {
+    setSearch(event.target.value);
+  }
+
+  //Search function
   const results = !search
     ? notes
     : notes.filter(note =>
         note.body.toLowerCase().includes(search.toLocaleLowerCase())
       );
 
+      //when a specific note is clicked set that note id to active
   const mapNotes = results.map(note => (
     <div
       key={note.id}
@@ -54,10 +61,7 @@ const NotesList: React.FC = () => {
     </div>
   ));
 
-  function searchQuery(event: any) {
-    setSearch(event.target.value);
-  }
-
+  //when the active state changes send a query to the server and display then set the activenote state
   useEffect(() => {
     Axios.get(`http://localhost:8000/api/notes/${active}`)
       .then(res => {

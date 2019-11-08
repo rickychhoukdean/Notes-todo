@@ -16,6 +16,7 @@ const Signup: React.FC = () => {
     setPassword(event.target.value);
   }
 
+  //If user signs up with a unique username and both fields are filled then the account will be created and locastorage will be set with their id
   function signup(event: any) {
     event.preventDefault();
     if (username && password) {
