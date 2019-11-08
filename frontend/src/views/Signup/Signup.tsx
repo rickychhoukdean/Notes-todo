@@ -25,7 +25,7 @@ const Signup: React.FC = () => {
       })
         .then(res => {
           console.log(res.data);
-          localStorage.setItem("username", username);
+          localStorage.setItem("username", res.data.id);
           setUsername("");
         })
         .catch(err => {

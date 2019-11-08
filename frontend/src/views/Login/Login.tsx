@@ -23,7 +23,7 @@ const Login = (props: any) => {
         .then(res => {
           for (let user of res.data) {
             if (username === user.user && password === user.password) {
-              localStorage.setItem("username", username);
+              localStorage.setItem("username", user.id);
               setUsername("");
             }
           }

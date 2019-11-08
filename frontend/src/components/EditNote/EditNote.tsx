@@ -24,7 +24,7 @@ const EditNote = ({ id, title, body }: any) => {
     Axios.put(`http://localhost:8000/api/notes/${id}/`, {
       title: noteTitle,
       body: noteBody,
-      user: 28
+      user: localStorage.getItem("username")
     })
       .then(res => {
         console.log(res);

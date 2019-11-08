@@ -25,7 +25,7 @@ const CreateNote: React.FC = () => {
     Axios.post("http://localhost:8000/api/notes/", {
       title: noteTitle,
       body: noteBody,
-      user: 28
+      user: 1
     })
       .then(res => {
         console.log(res);
