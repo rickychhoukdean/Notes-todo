@@ -1,5 +1,7 @@
 .text-search {
   width: 100%;
+  resize: none;
+  margin-top: 1em;
 }
 .flex {
   display: flex;

@@ -18,7 +18,7 @@ const NotesList: React.FC = () => {
   const [activeNote, setActiveNote] = useState({
     id: 0,
     body: "",
-    title: "Please click a note or button to the left "
+    title: "Please expand a note or button on the left "
   });
 
   useEffect(() => {
