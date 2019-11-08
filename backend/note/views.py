@@ -7,7 +7,7 @@ from .models import Note , User
 
 class NoteView(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
-    queryset = Note.objects.all()
+    queryset = Note.objects.all().order_by('-date_editted')
 
 class UserView(viewsets.ModelViewSet):
     serializer_class = UserSerializer

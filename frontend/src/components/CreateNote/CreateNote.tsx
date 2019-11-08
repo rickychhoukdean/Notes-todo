@@ -41,7 +41,7 @@ const CreateNote: React.FC = () => {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Create Note
+        Create
       </Button>
 
       <Modal show={show} onHide={handleClose}>

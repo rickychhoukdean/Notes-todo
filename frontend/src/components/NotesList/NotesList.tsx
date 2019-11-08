@@ -28,54 +28,58 @@ const NotesList: React.FC = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const searchedResults = notes.filter(note => {
-      note.body.toLowerCase().includes(search);
-    });
+  const results = !search
+    ? notes
+    : notes.filter(note =>
+        note.body.toLowerCase().includes(search.toLocaleLowerCase())
+      );
 
-    setNotes(searchedResults);
-  }, [search]);
+  const mapNotes = results.map(note => (
+    <div
+      key={note.id}
+      onClick={() => {
+        setActive(note.id);
+      }}
+    >
+      <Note
+        id={note.id}
+        title={note.title}
+        body={note.body}
+        date_created={note.date_created}
+        date_editted={note.date_editted}
+      />
+    </div>
+  ));
 
   function searchQuery(event: any) {
-    setSearch(event.target.value.toLowerCase());
+    setSearch(event.target.value);
   }
 
   useEffect(() => {
-    Axios.get(`http://localhost:8000/api/notes/${active}`).then(res => {
-      setActiveNote(res.data);
-    });
+    Axios.get(`http://localhost:8000/api/notes/${active}`)
+      .then(res => {
+        setActiveNote(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, [active]);
 
   return (
     <div className="flex">
       <section className="left-section">
         <textarea
+          className="text-search"
           rows={1}
           placeholder="Search"
           onChange={searchQuery}
+          value={search}
         ></textarea>
-        <ul className="note-list">
-          {notes.map(note => (
-            <div
-              key={note.id}
-              onClick={() => {
-                setActive(note.id);
-              }}
-            >
-              <Note
-                id={note.id}
-                title={note.title}
-                body={note.body}
-                date_created={note.date_created}
-                date_editted={note.date_editted}
-              />
-            </div>
-          ))}
-        </ul>
+        <div className="note-list">{mapNotes}</div>
       </section>
       <section className="right-section">
         <NoteDisplay
-          key={activeNote.id}
+          id={activeNote.id}
           body={activeNote.body}
           title={activeNote.title}
         />

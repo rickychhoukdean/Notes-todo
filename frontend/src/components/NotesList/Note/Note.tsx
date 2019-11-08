@@ -14,7 +14,6 @@ const Note = ({ id, title, body, date_created, date_editted }: any) => {
   return (
     <div key={id} className="note-container">
       <div className="note-title">{title}</div>
-      <div className="note-body">{body}</div>
       <div className="note-date">Last editted {date_editted}</div>
       <EditNote id={id} title={title} body={body} />
        <Button onClick={deleteNote}>Delete</Button>

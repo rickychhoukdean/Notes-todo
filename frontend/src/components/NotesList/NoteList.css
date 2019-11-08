@@ -1,13 +1,12 @@
-.note-list {
-  width: 30vh;
+.text-search {
+  width: 100%;
 }
-
 .flex {
   display: flex;
 }
 
 .left-section {
-  width: 30vw;
+  width: 25vw;
 }
 
 .right-section {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
@@ -19,14 +19,16 @@ const Login = (props: any) => {
   function userAuth(event: any) {
     event.preventDefault();
     if (username && password) {
-      Axios.get("http://localhost:8000/api/users/").then(res => {
-        for (let user of res.data) {
-          if (username === user.user && password === user.password) {
-            localStorage.setItem("username", username);
-            setUsername("");
+      Axios.get("http://localhost:8000/api/users/")
+        .then(res => {
+          for (let user of res.data) {
+            if (username === user.user && password === user.password) {
+              localStorage.setItem("username", username);
+              setUsername("");
+            }
           }
-        }
-      });
+        })
+        .catch(err => console.log(err));
     }
   }
 
