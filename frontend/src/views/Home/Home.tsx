@@ -17,7 +17,6 @@ const Home = (props: any) => {
             <LogoutPrompt/>
           </Link>
           <Button>Create Note</Button>
-
           <section>
             <NotesList />
           </section>

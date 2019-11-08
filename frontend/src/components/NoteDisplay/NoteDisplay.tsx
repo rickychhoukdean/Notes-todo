@@ -22,6 +22,8 @@ const NoteDisplay = ({ key, title, body, setting }: any) => {
     })
       .then(res => {
         console.log(res);
+        window.location.reload(); 
+
       })
       .catch(err => {
         console.log(err);
@@ -29,7 +31,7 @@ const NoteDisplay = ({ key, title, body, setting }: any) => {
   }
 
 
-  if (setting === "edit") {
+  if (setting !== "edit") {
     return (
       <>
         <div key={key} className="note-display">
