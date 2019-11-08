@@ -11,11 +11,6 @@ Notes application made using React frontend and Django/Python backend
 6. `npm start`
 7. Hopefully it is straightforward from there!
 
-## Tests
-### Frontend
-1. cd into frontend folder
-2. run npm test
-
 ## Demo Gif
 
 ![Creating interview screenshot](frontend/src/screenshot/demo.gif)
