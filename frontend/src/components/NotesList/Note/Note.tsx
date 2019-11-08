@@ -6,7 +6,6 @@ import Axios from "axios";
 import EditNote from "../../EditNote/EditNote";
 const Note = ({ id, title, body, date_created, date_editted }: any) => {
   function deleteNote() {
-    console.log(id, title);
     Axios.delete(`http://localhost:8000/api/notes/${id}/`);
     window.location.reload();
   }

@@ -24,7 +24,6 @@ const Signup: React.FC = () => {
         password
       })
         .then(res => {
-          console.log(res.data);
           localStorage.setItem("username", res.data.id);
           setUsername("");
         })

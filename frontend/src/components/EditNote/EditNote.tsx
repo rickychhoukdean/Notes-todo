@@ -20,7 +20,6 @@ const EditNote = ({ id, title, body }: any) => {
   }
 
   function saveNewNote() {
-    console.log(id);
     Axios.put(`http://localhost:8000/api/notes/${id}/`, {
       title: noteTitle,
       body: noteBody,

@@ -21,11 +21,10 @@ const CreateNote: React.FC = () => {
   }
 
   function saveNewNote() {
-    console.log(noteTitle, noteBody);
     Axios.post("http://localhost:8000/api/notes/", {
       title: noteTitle,
       body: noteBody,
-      user: 1
+      user: localStorage.getItem('username')
     })
       .then(res => {
         console.log(res);
