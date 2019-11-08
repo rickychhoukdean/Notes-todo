@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Note, User 
 
 class NoteAdmin(admin.ModelAdmin): 
-    list_display = ('title', 'body', 'date_created', 'date_editted') 
+    list_display = ('title', 'body', 'date_created', 'date_editted','user') 
 admin.site.register(Note, NoteAdmin) 
 
 class UserAdmin(admin.ModelAdmin):

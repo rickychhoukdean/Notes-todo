@@ -36,8 +36,8 @@ const Home = (props: any) => {
           >
             Create Note
           </Button>
+
           <section>
-            <textarea rows={1} placeholder="Search"></textarea>
             <NotesList />
           </section>
         </>

@@ -22,12 +22,13 @@ const Signup = (props: any) => {
     event.preventDefault();
     if (username && password) {
       Axios.post("http://localhost:8000/api/users/", {
-        user:username,
+        user: username,
         password
       })
         .then(res => {
-          localStorage.setItem("username", username); 
-          setUsername("")
+          console.log(res.data);
+          localStorage.setItem("username", username);
+          setUsername("");
         })
         .catch(err => {
           console.log(err);
@@ -35,9 +36,9 @@ const Signup = (props: any) => {
     }
   }
 
-    if(localStorage.getItem("username")){
-      return <Redirect to={"/"}></Redirect>;
-    }
+  if (localStorage.getItem("username")) {
+    return <Redirect to={"/"}></Redirect>;
+  }
 
   return (
     <Form>
